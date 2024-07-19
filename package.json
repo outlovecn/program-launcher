@@ -1,8 +1,10 @@
 {
   "name": "program-launcher",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/program-launcher.cjs",
   "module": "./dist/program-launcher.mjs",
+  "repository": "github:outlovecn/program-launcher",
+  "description": "This tool is used to verify the usability of the program when opening a local program link from a webpage, with callback functions for both failed and successful opening",
   "exports": {
     ".": {
       "require": "./dist/program-launcher.cjs",
@@ -13,15 +15,14 @@
       "require": "./dist/"
     }
   },
+  "license": "MIT",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rimraf build/**/* && tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts && copyfiles ./package.json build",
     "lint:scripts": "eslint . --ext .ts",
     "format:scripts": "prettier . --write",
     "format": "npm run format:scripts",
-    "prepare": "husky install && husky set .husky/pre-commit 'npx lint-staged' && git add .husky/pre-commit",
-    "uninstall-husky": "npm uninstall husky --no-save && git config --unset core.hooksPath && npx rimraf .husky",
-    "release": "pnpm build && changelogen --release --push && npm publish"
+    "release": "pnpm build && changelogen --release && npm publish build/"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
