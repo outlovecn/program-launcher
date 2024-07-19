@@ -23,7 +23,7 @@ This tool is used to verify the usability of the program when opening a local pr
 <script src="/path/to/program-launcher.iife.js"></script>
 <script>
   window.programLauncher.openUri(
-    "your-application-uri://",
+    "edge://",
     () => {
       /* fail */
     },
@@ -38,6 +38,20 @@ This tool is used to verify the usability of the program when opening a local pr
 
 ```shell
 npm install program-launcher
+```
+
+```javascript
+import openUri from 'program-launcher'
+// import { openUri } from 'program-launcher'
+openUri(
+  "your-application-uri://",
+  () => {
+    /* fail */
+  },
+  () => {
+    /* success */
+  }
+);
 ```
 
 ## Acknowledgment
